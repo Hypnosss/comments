@@ -1,4 +1,8 @@
-import { shoot1 } from "./comment_manager.js";
+import { CommentManager } from "./comment_manager.js";
+
+let canvas = $("canvas")[0];
+canvas.font = "50px serif";
+let manager = new CommentManager(canvas);
 
 let btn_1 = $("#btn1"),
     btn_5 = $("#btn5"),
@@ -21,7 +25,5 @@ btn_20.on("click", () => {
 function shoot(times) {
     let words = input.val();
     input.val("");
-    for(let i = 0; i < times; i++) {
-        shoot1(words);
-    }
+    manager.shoot(words);
 }
